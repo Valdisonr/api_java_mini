@@ -1,0 +1,10 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=dbestoque'
+      - 'MYSQL_PASSWORD=secret23'
+      - 'MYSQL_ROOT_PASSWORD=verysecret23'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306:3306'
