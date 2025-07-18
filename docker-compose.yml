@@ -8,3 +8,23 @@ services:
       - 'MYSQL_USER=myuser'
     ports:
       - '3306:3306'
+    networks:
+      - app-network
+
+  java_app: # This is the service name for your Java application
+    image: eclipse-temurin:21
+    container_name: java_app
+    depends_on:
+      - mysql
+    volumes:
+      - ./api_java_mini-0.0.1-SNAPSHOT.jar:/app/app.jar
+    working_dir: /app
+    command: ["java", "-jar", "app.jar"]
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
