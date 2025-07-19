@@ -13,7 +13,7 @@ services:
 
   java_app: # This is the service name for your Java application
     image: eclipse-temurin:21
-    container_name: java_app
+    container_name: api_java_teste
     depends_on:
       - mysql
     volumes:

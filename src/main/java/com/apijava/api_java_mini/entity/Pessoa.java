@@ -17,8 +17,8 @@ public class Pessoa {
     private  String email;
     private  String telefone;
 
-    public Pessoa(Long id, String nome, String cpf, String idade, String email, String telefone) {
-        this.id = id;
+    public Pessoa( String nome, String cpf, String idade, String email, String telefone) {
+
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
