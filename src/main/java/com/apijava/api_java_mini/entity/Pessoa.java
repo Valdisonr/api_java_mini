@@ -3,6 +3,8 @@ package com.apijava.api_java_mini.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 
 @Table(name="pessoa")
 @Entity
@@ -16,6 +18,8 @@ public class Pessoa {
     private  String idade;
     private  String email;
     private  String telefone;
+
+
 
     public Pessoa( String nome, String cpf, String idade, String email, String telefone) {
 
@@ -74,7 +78,11 @@ public class Pessoa {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+        public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+
+
 }
+

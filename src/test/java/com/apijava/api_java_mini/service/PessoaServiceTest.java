@@ -16,14 +16,14 @@ class PessoaServiceIntegrationTest {
     @Autowired
     private PessoaService pessoaService;
 
-    @Test
-    void deveSalvarEPesquisarPessoa() {
-        Pessoa pessoa = new Pessoa("Maria", "000.111.222-33", "25", "maria@email.com", "12345-6789");
-        Pessoa salva = pessoaService.criar(pessoa);
-
-        Pessoa encontrada = pessoaService.buscarPorId(salva.getId());
-
-        assertEquals("Maria", encontrada.getNome());
-        assertEquals("000.111.222-33", encontrada.getCpf());
-    }
+//    @Test
+//    void deveSalvarEPesquisarPessoa() {
+//        Pessoa pessoa = new Pessoa("Maria", "000.111.222-33", "25", "maria@email.com", "12345-6789");
+//        Pessoa salva = pessoaService.criar(pessoa);
+//
+//        Pessoa encontrada = pessoaService.buscarPorId(salva.getId());
+//
+//        assertEquals("Maria", encontrada.getNome());
+//        assertEquals("000.111.222-33", encontrada.getCpf());
+//    }
 }

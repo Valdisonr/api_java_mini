@@ -1,8 +1,10 @@
 package com.apijava.api_java_mini.controller;
 
 
+import com.apijava.api_java_mini.dto.PessoaDTO;
 import com.apijava.api_java_mini.entity.Pessoa;
 import com.apijava.api_java_mini.service.PessoaService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,19 +36,18 @@ public class PessoaController {
 
 
 @PostMapping
-public Pessoa criar(@RequestBody Pessoa pessoa){
-        return pessoaService.criar(pessoa);
+public Pessoa criar(@Valid @RequestBody PessoaDTO pessoadto){
+        return pessoaService.criar(pessoadto);
 }
-
-@PutMapping
-public ResponseEntity<Pessoa> atualizar(@RequestBody Pessoa pessoa) {
-    try {
-        Pessoa atualizada = pessoaService.atualizar(pessoa.getId(), pessoa);
-        return ResponseEntity.ok(atualizada);
-    } catch (RuntimeException e) {
-        return ResponseEntity.notFound().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Pessoa> atualizar(@PathVariable Long id, @Valid @RequestBody PessoaDTO pessoaDto) {
+        try {
+            Pessoa atualizada = pessoaService.atualizar(id, pessoaDto);
+            return ResponseEntity.ok(atualizada);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
-}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id){
