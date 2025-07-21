@@ -16,9 +16,12 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL)
+
+
+    @ManyToOne(fetch = FetchType.LAZY) // ou EAGER
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
+
 
 
     private String endereco;

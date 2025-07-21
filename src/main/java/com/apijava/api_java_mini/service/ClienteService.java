@@ -26,9 +26,41 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
-    public List<Cliente> listarTodos() {
-        return clienteRepository.findAll();
+//    public List<ClienteDTO> listarTodosDTO() {
+//        List<Cliente> clientes = clienteRepository.findAllComPessoa();
+//        return clientes.stream()
+//                .map(clienteMapper::toDTO)
+//                .toList();
+//    }
+
+
+    public List<ClienteDTO> listarTodosDTO() {
+        List<Cliente> clientes = clienteRepository.findAllComPessoa();
+
+        for (Cliente cliente : clientes) {
+            System.out.println("Cliente ID: " + cliente.getId());
+
+            Pessoa pessoa = cliente.getPessoa();
+            if (pessoa == null) {
+                System.out.println("Pessoa é NULL");
+            } else {
+                System.out.println("Pessoa ID: " + pessoa.getId());
+                System.out.println("Nome da pessoa: " + pessoa.getNome());
+            }
+        }
+
+        return clientes.stream()
+                .map(clienteMapper::toDTO)
+                .toList();
     }
+
+
+
+
+
+
+
+
 
     public Cliente buscarPorId(Long id) {
         return clienteRepository.findById(id)

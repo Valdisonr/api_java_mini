@@ -36,7 +36,7 @@ public class ClienteDTO {
     private Boolean ativo = true;
 
     private Long pessoaId;
-
+    private String nomePessoa;
     public ClienteDTO() {}
 
     // Getters e Setters
@@ -120,4 +120,12 @@ public class ClienteDTO {
     public void setPessoaId(Long pessoaId) {
         this.pessoaId = pessoaId;
     }
+    public String getNomePessoa() {
+        return nomePessoa;
+    }
+
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
+    }
+
 }

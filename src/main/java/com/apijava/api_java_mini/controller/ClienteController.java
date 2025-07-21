@@ -26,16 +26,15 @@ public class ClienteController {
         ClienteDTO dtoSalvo=clienteMapper.toDTO(clienteSalvo);
         return ResponseEntity.ok(dtoSalvo);
     }
-@GetMapping
-    public ResponseEntity<List<ClienteDTO>>ListarTodos(){
-List<ClienteDTO>clientes=clienteService.listarTodos()
-        .stream()
-        .map(clienteMapper::toDTO)
-        .collect(Collectors.toList());
-return  ResponseEntity.ok(clientes);
+
+    @GetMapping
+    public ResponseEntity<List<ClienteDTO>> listarTodos() {
+        List<ClienteDTO> clientes = clienteService.listarTodosDTO();
+        return ResponseEntity.ok(clientes);
     }
 
-@GetMapping("/{id}")
+
+    @GetMapping("/{id}")
     public ResponseEntity<ClienteDTO>buscarPorId(@PathVariable Long id){
         Cliente cliente=clienteService.buscarPorId(id);
         return ResponseEntity.ok(clienteMapper.toDTO(cliente));

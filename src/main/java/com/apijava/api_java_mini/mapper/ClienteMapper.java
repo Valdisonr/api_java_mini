@@ -12,7 +12,11 @@ public interface ClienteMapper {
 @Mapping(source = "pessoaId",target = "pessoa.id")
 Cliente toEntity(ClienteDTO dto);
 
-@Mapping(source = "pessoa.id",target = "pessoaId")
-ClienteDTO toDTO(Cliente entity);
+
+
+    @Mapping(source = "pessoa.id", target = "pessoaId")
+    @Mapping(source = "pessoa.nome", target = "nomePessoa") // <- AQUI o nome da pessoa é mapeado
+    ClienteDTO toDTO(Cliente entity);
+
 
 }
