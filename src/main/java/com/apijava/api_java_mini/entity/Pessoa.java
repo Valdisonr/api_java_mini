@@ -3,6 +3,7 @@ package com.apijava.api_java_mini.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 
@@ -19,6 +20,8 @@ public class Pessoa {
     private  String email;
     private  String telefone;
 
+    @OneToMany(mappedBy = "pessoa")
+    private List<Cliente> clientes;
 
 
     public Pessoa( String nome, String cpf, String idade, String email, String telefone) {
@@ -78,11 +81,29 @@ public class Pessoa {
         return telefone;
     }
 
-        public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
 
+        public List<Cliente> getClientes() {
+        return clientes;
+    }
 
-}
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
 
